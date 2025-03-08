@@ -10,7 +10,7 @@ async function run() {
 
   app.use(express.static(path.resolve(__dirname, "../dist"), { maxAge: "1y", etag: false }));
 
-  const uri = `mongodb+srv://hatimquetta:no9hdClfePoMIRmq@cluster0.hp60m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+  const uri = `mongodb+srv://hatimquetta:no9hdClfePoMIRmq@cluster0.hp60m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tls=true&ssl=true`;
   const client = new MongoClient(uri);
 
   await client.connect();
