@@ -8,7 +8,7 @@ async function run() {
 
   app.use("/images", express.static(path.join(__dirname, "../assets/images")));
 
-  app.use(express.static(path.resolve(__dirname, "../dist"), { maxAge: "1y", etag: false }));
+  // app.use(express.static(path.resolve(__dirname, "../dist"), { maxAge: "1y", etag: false }));
 
   const uri = `mongodb+srv://hatimquetta:no9hdClfePoMIRmq@cluster0.hp60m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tls=true&ssl=true`;
   const client = new MongoClient(uri);
@@ -68,9 +68,9 @@ async function run() {
     res.json(await populatedCartIds(user?.cartItems || []));
   });
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../dist/index.html"));
-  });
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname, "../dist/index.html"));
+  // });
 
   const port = process.env.PORT || 8000;
 
